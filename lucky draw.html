@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODM Draw Hack</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>CODM Draw Hack</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#deposit">Deposit</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h2>Welcome to CODM Draw Hack</h2>
+        <p>Get legendary and mythical guns with our exclusive draw hack! Deposit 5k, 10k, or more to unlock premium rewards.</p>
+        <button onclick="scrollToSection('deposit')">Deposit Now</button>
+    </section>
+
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-container">
+            <img src="https://via.placeholder.com/300x200?text=CODM+Gun" alt="CODM Gun">
+            <img src="https://via.placeholder.com/300x200?text=Draw+Hack" alt="Draw Hack">
+            <img src="https://via.placeholder.com/300x200?text=Legendary+Gun" alt="Legendary Gun">
+            <img src="https://via.placeholder.com/300x200?text=Mythical+Gun" alt="Mythical Gun">
+        </div>
+    </section>
+
+    <section id="deposit">
+        <h2>Deposit for Draw Hack</h2>
+        <p>Choose your deposit amount to unlock legendary and mythical guns!</p>
+        <form id="deposit-form">
+            <label for="amount">Deposit Amount (NGN):</label>
+            <select id="amount" name="amount" required>
+                <option value="5000">5,000</option>
+                <option value="10000">10,000</option>
+                <option value="15000">15,000</option>
+                <option value="20000">20,000</option>
+            </select>
+            <button type="submit">Proceed to Deposit</button>
+        </form>
+        <p>After selecting an amount, you will be redirected to deposit to account number: <strong>9047704441 (Opay)</strong>.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 CODM Draw Hack. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deposit Confirmation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Deposit Confirmation</h1>
+    </header>
+
+    <section>
+        <h2>Deposit Instructions</h2>
+        <p>Please deposit the selected amount to the following account:</p>
+        <p><strong>Account Number:</strong> 9047704441</p>
+        <p><strong>Bank:</strong> Opay</p>
+        <p><strong>Amount:</strong> <span id="deposit-amount">0</span> NGN</p>
+        <p>After making the deposit, please contact support to confirm your payment and unlock your draw hack rewards!</p>
+        <a href="index.html">Back to Home</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 CODM Draw Hack. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>// Smooth scroll to section
+function scrollToSection(sectionId) {
+    document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+}
+
+// Handle deposit form submission
+document.getElementById('deposit-form')?.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const amount = document.getElementById('amount').value;
+    // Store amount in localStorage to pass to deposit page
+    localStorage.setItem('depositAmount', amount);
+    // Redirect to deposit confirmation page
+    window.location.href = 'deposit.html';
+});
+
+// Display deposit amount on deposit page
+if (window.location.pathname.includes('deposit.html')) {
+    const amount = localStorage.getItem('depositAmount') || '0';
+    document.getElementById('deposit-amount').textContent = amount;
+}
